@@ -2,7 +2,7 @@
 Title: Text classification with Transformer
 Author: [Apoorv Nandan](https://twitter.com/NandanApoorv)
 Date created: 2020/05/10
-Last modified: 2024/01/18
+Last modified: 2024/06/30
 Description: Implement a Transformer block as a Keras layer and use it for text classification.
 Accelerator: GPU
 Converted to Keras 3 by: [Sitam Meur](https://github.com/sitamgithub-MSIT)
@@ -13,7 +13,7 @@ Converted to Keras 3 by: [Sitam Meur](https://github.com/sitamgithub-MSIT)
 """
 
 import keras
-from keras import ops
+import tensorflow as tf 
 from keras import layers
 
 
@@ -60,8 +60,8 @@ class TokenAndPositionEmbedding(layers.Layer):
         self.pos_emb = layers.Embedding(input_dim=maxlen, output_dim=embed_dim)
 
     def call(self, x):
-        maxlen = ops.shape(x)[-1]
-        positions = ops.arange(start=0, stop=maxlen, step=1)
+        maxlen = tf.shape(x)[-1]
+        positions = tf.range(start=0, limit=maxlen, delta=1)
         positions = self.pos_emb(positions)
         x = self.token_emb(x)
         return x + positions
