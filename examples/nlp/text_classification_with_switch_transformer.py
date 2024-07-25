@@ -2,7 +2,7 @@
 Title: Text classification with Switch Transformer
 Author: [Khalid Salama](https://www.linkedin.com/in/khalid-salama-24403144/)
 Date created: 2020/05/10
-Last modified: 2021/02/15
+Last modified: 2024/06/29
 Description: Implement a Switch Transformer for text classification.
 Accelerator: GPU
 """
